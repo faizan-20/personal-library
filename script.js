@@ -65,22 +65,26 @@ form.style.visibility = 'hidden';
 
 const addb = document.querySelector('.addb');
 addb.addEventListener('click', () => {
-
+    
     if (form.style.visibility === 'hidden') {
         // 👇️ this SHOWS the form
         form.style.visibility = 'visible';
+        addb.textContent = '- Cancel';
     } else {
         // 👇️ this HIDES the form
         form.style.visibility = 'hidden';
+        addb.textContent = "+ Add Books"
     }
+
 })
 
-subBtn.addEventListener('click', () => {
+
+function doSomething(){
     let bookKaNaam = bname.value;
     let authKaNaam = authname.value;
     let pagesNumber = pages.value;
     addToLibrary(bookKaNaam, authKaNaam, pagesNumber);
-
+    
     bname.value = "";
     authname.value = "";
     pages.value = "";
@@ -92,5 +96,5 @@ subBtn.addEventListener('click', () => {
         // 👇️ this HIDES the form
         form.style.visibility = 'hidden';
     }
-    
-})
+    addb.textContent = "+ Add Books"
+}

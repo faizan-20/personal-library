@@ -44,7 +44,7 @@ a{
 }
 
 table, th, td{
-    padding: 12px 120px;
+    padding: 12px 70px;
     text-align: center;
     font-size: 1.3rem;
 }
@@ -63,6 +63,7 @@ th{
     color: #F1F6F9;
     font-weight: 600;
     font-size: 1.2rem;
+    width: 9em;
 }
 
 .addb:hover{
@@ -75,7 +76,6 @@ th{
 
 #form{
     color: #F1F6F9;
-    padding: 24px;
 }
 
 .input{
@@ -104,18 +104,21 @@ input:focus{
 
 label{
     padding: 2px;
+    color: #d6d8d96f;
+    font-size: 1.0rem;
 }
 
-#read-container, #submit-btn{
+.read-box{
     font-size: 1rem;
-    margin: 4px;
+    margin: 10px;
 }
 
 #submitBtn{
-    padding: 3px 2px;
+    padding: 4px 4px;
     border: 1px solid #394867;
     background-color: #394867;
     border-radius: 4px;
     font-weight: 600;
     color: #F1F6F9;
+    font-size: 1rem;
 }

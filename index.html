@@ -19,10 +19,10 @@
             </div>
         </div>
         <div class="add"><button class="addb">+ Add Books</button></div>
-        <form action="#" id="form">
+        <form action="#" id="form" onsubmit="doSomething()">
             <div class="input">
                 <label for="book">Book name</label>
-                <input type="text" id="book" autocomplete="off" required>
+                <input type="text" id="book" autocomplete="off"  required>
             </div>
             <div class="input">
                 <label for="authname">Author name</label>
@@ -37,7 +37,9 @@
                     <label for="read">Read</label>
                     <input type="checkbox" name="" id="read">
                 </div>
-                <button type="submit" id="submitBtn">Submit</button>
+                <div id="submitBtnDiv">
+                    <button type="submit" id="submitBtn">Submit</button>
+                </div>
             </div>
         </form>
         <div class="display">
