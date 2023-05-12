@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #212A3E;
+    color: #F1F6F9;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    font-size: 2.5rem;
+    font-weight: 700;
+    background-color: #394867;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0px 0px 20px black;
+    flex: 1;
+}
+
+.heading, .login{
+    padding: 24px 24px;
+}
+
+a{
+    text-decoration: none;
+    color: #9BA4B5;
+    background-color: rgb(14, 46, 64);
+    padding: 5px 10px;
+    border-radius: 6px;
+}
+
+.login{
+    font-size: 2rem;
+}
+
+table, th, td{
+    padding: 12px 120px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+th{
+    color: #9BA4B5;
+    font-size: 1.7rem;
+}
+
+.addb{
+    margin-top: 52px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(4, 61, 96, 0.195);
+    color: #F1F6F9;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.addb:hover{
+    background-color: rgba(4, 61, 96, 0.8);
+}
+
+.addb:click{
+    border: 2px solid #9BA4B5;
+}
+
+#form{
+    color: #F1F6F9;
+    padding: 24px;
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+    font-size: 1.2rem;
+}
+
+.read-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+input{
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #F1F6F9;
+    font-size: 1rem;
+}
+
+input:focus{
+    border: 1px solid blue;
+    border-radius: 4px;
+}
+
+input:invalid{
+    border: 1px solid red;
+}
+
+label{
+    padding: 2px;
+}
+
+#read-container, #submit-btn{
+    font-size: 1rem;
+    margin: 4px;
+}
+
+#submitBtn{
+    padding: 3px 2px;
+    border: 1px solid #394867;
+    background-color: #394867;
+    border-radius: 4px;
+    font-weight: 600;
+    color: #F1F6F9;
+}

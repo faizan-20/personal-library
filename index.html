@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Library</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="heading">
+                Personal Library
+            </div>
+            <div class="login">
+                <a href="#">Login</a>
+            </div>
+        </div>
+        <div class="add"><button class="addb">+ Add Books</button></div>
+        <form action="#" id="form">
+            <div class="input">
+                <label for="book">Book name</label>
+                <input type="text" id="book" autocomplete="off" required>
+            </div>
+            <div class="input">
+                <label for="authname">Author name</label>
+                <input type="text" id="authname" autocomplete="off" required>
+            </div>
+            <div class="input">
+                <label for="book">Number of Pages</label>
+                <input type="number" id="pageno" autocomplete="off" required>
+            </div>
+            <div class="read-box">
+                <div id="read-container">
+                    <label for="read">Read</label>
+                    <input type="checkbox" name="" id="read">
+                </div>
+                <button type="submit" id="submitBtn">Submit</button>
+            </div>
+        </form>
+        <div class="display">
+            <table id="table">
+                <tr class="table-head">
+                    <th>S.no</th>
+                    <th>Book</th>
+                    <th>Author Name</th>
+                    <th>Pages</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
