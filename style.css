@@ -43,10 +43,19 @@ a{
     font-size: 2rem;
 }
 
+th{
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
 table, th, td{
     padding: 12px 70px;
     text-align: center;
     font-size: 1.3rem;
+    border-collapse: collapse;
+}
+
+tr:nth-child(even){
+    background-color: #39486731;
 }
 
 th{
