@@ -102,10 +102,6 @@ input:focus{
     border-radius: 4px;
 }
 
-input:invalid{
-    border: 1px solid red;
-}
-
 label{
     padding: 2px;
 }
