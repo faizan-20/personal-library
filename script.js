@@ -1,4 +1,5 @@
 const subBtn = document.getElementById('submitBtn');
+const readBox = document.getElementById('read');
 let bname = document.getElementById('book');
 let authname = document.getElementById('authname');
 let pages = document.getElementById('pageno');
@@ -29,36 +30,51 @@ function addToLibrary(bookName, author, pages){
     displayBooks(myLibrary[myLibrary.length-1], myLibrary.length);
 }
 
+function readStatus(){
+    
+    if(readBox.checked){
+        return 'Read';
+    }else{
+        return 'Not Read';
+    }
+}
+
 
 function displayBooks(listElement, i){
     const table = document.querySelector('#table');
     
-    //for(const key in myLibrary){
-        const trow = document.createElement('tr');
-        trow.classList.add('trow');
+    const trow = document.createElement('tr');
+    trow.classList.add('trow');
 
-        table.appendChild(trow);
+    table.appendChild(trow);
         
-        const sno = document.createElement('td');
-        trow.appendChild(sno);
-        sno.classList.add('sno');
-        sno.textContent = i;
+    const sno = document.createElement('td');
+    trow.appendChild(sno);
+    sno.classList.add('sno');
+    sno.textContent = i;
 
-        const bName = document.createElement('td');
-        trow.appendChild(bName);
-        bName.classList.add('bName');
-        bName.textContent = listElement.bookName;
+    const bName = document.createElement('td');
+    trow.appendChild(bName);
+    bName.classList.add('bName');
+    bName.textContent = listElement.bookName;
 
-        const authName = document.createElement('td');
-        trow.appendChild(authName);
-        authName.classList.add('authName');
-        authName.textContent = listElement.author;
+    const authName = document.createElement('td');
+    trow.appendChild(authName);
+    authName.classList.add('authName');
+    authName.textContent = listElement.author;
 
-        const pages = document.createElement('td');
-        trow.appendChild(pages);
-        pages.classList.add('pages');
-        pages.textContent = listElement.pages;
-    //}
+    const pages = document.createElement('td');
+    trow.appendChild(pages);
+    pages.classList.add('pages');
+    pages.textContent = listElement.pages;
+
+    const status = document.createElement('td');
+    trow.appendChild(status);
+    status.classList.add('status');
+    const readBtn = document.createElement('button');
+    status.appendChild(readBtn);
+    readBtn.classList.add('readBtn');
+    readBtn.textContent = readStatus();
 }
 const form = document.getElementById('form');
 form.style.visibility = 'hidden';

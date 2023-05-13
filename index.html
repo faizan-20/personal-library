@@ -21,16 +21,13 @@
         <div class="add"><button class="addb">+ Add Books</button></div>
         <form action="#" id="form" onsubmit="doSomething()">
             <div class="input">
-                <label for="book">Book name</label>
-                <input type="text" id="book" autocomplete="off"  required>
+                <input type="text" id="book" autocomplete="off" placeholder="Title" required>
             </div>
             <div class="input">
-                <label for="authname">Author name</label>
-                <input type="text" id="authname" autocomplete="off" required>
+                <input type="text" id="authname" autocomplete="off" placeholder="Author Name" required>
             </div>
             <div class="input">
-                <label for="book">Number of Pages</label>
-                <input type="number" id="pageno" autocomplete="off" required>
+                <input type="number" id="pageno" autocomplete="off" placeholder="Number of Pages" required>
             </div>
             <div class="read-box">
                 <div id="read-container">
@@ -49,6 +46,7 @@
                     <th>Book</th>
                     <th>Author Name</th>
                     <th>Pages</th>
+                    <th>Status</th>
                 </tr>
             </table>
         </div>
