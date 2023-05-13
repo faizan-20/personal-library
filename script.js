@@ -8,22 +8,13 @@ let myLibrary = [
 
 ];
 
-function addError(){
-    if(bname === ''){
-        bname.classList.add('error');
-    }
-    if(authname === ''){
-        authname.classList.add('error');
-    }if(pages === ''){
-        authname.classList.add('error');
-    }
-}
-
 function Book(bookName, author, pages){
     this.bookName = bookName;
     this.author = author;
     this.pages = pages; 
 }
+
+Book.prototype.data = myLibrary.length;
 
 function addToLibrary(bookName, author, pages){
     myLibrary.push(new Book(bookName, author, pages));
@@ -71,10 +62,10 @@ function displayBooks(listElement, i){
     const status = document.createElement('td');
     trow.appendChild(status);
     status.classList.add('status');
-    const readBtn = document.createElement('button');
-    status.appendChild(readBtn);
-    readBtn.classList.add('readBtn');
-    readBtn.textContent = readStatus();
+    const createReadBtn = document.createElement('button');
+    status.appendChild(createReadBtn);
+    createReadBtn.classList.add('readBtn');
+    createReadBtn.textContent = readStatus();
 }
 const form = document.getElementById('form');
 form.style.visibility = 'hidden';
@@ -112,5 +103,18 @@ function doSomething(){
         // 👇️ this HIDES the form
         form.style.visibility = 'hidden';
     }
+
     addb.textContent = "+ Add Books"
+
+    const readBtn = document.querySelectorAll('.readBtn');
+    console.log(readBtn);
+    readBtn.forEach((button) => {
+        button.addEventListener('click', () => {
+            if(button.textContent !== 'Read'){
+                console.log("yipee"); 
+            }else {
+                console.log("yipee"); 
+            }
+        })
+    })
 }
