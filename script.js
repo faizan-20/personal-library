@@ -14,8 +14,6 @@ function Book(bookName, author, pages){
     this.pages = pages; 
 }
 
-Book.prototype.data = myLibrary.length;
-
 function addToLibrary(bookName, author, pages){
     myLibrary.push(new Book(bookName, author, pages));
     displayBooks(myLibrary[myLibrary.length-1], myLibrary.length);
@@ -105,16 +103,23 @@ function doSomething(){
     }
 
     addb.textContent = "+ Add Books"
+}
 
+function readStatusButton(){
     const readBtn = document.querySelectorAll('.readBtn');
     console.log(readBtn);
     readBtn.forEach((button) => {
         button.addEventListener('click', () => {
-            if(button.textContent !== 'Read'){
-                console.log("yipee"); 
+            if(button.textContent === 'Read'){
+                console.log("Read"); 
             }else {
-                console.log("yipee"); 
+                console.log("Not Read"); 
             }
         })
     })
 }
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    doSomething();
+})
