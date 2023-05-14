@@ -150,3 +150,19 @@ input[type=number]::-webkit-outer-spin-button {
 .readBtn:hover{
     border: 1px solid #F1F6F9;
 }
+
+.deleteButton{
+    background-color: rgb(65, 0, 0);
+    font-size: 1.0rem;
+    border: 1px solid rgb(65, 0, 0);
+    margin: 5px;
+    padding: 6px 8px;
+    cursor: pointer;
+    color: #F1F6F9;
+    font-weight: 700;
+}
+
+.deleteButton:hover{
+    background-color: rgba(217, 9, 9, 0.516);
+    border: 1px solid rgba(217, 9, 9, 0.516);
+}

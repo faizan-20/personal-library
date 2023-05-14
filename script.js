@@ -5,7 +5,12 @@ let authname = document.getElementById('authname');
 let pages = document.getElementById('pageno');
 
 let myLibrary = [
-
+    {
+        bookName: 'War And Peace',
+        author: 'Leo Tolstoy',
+        pages: '1290',
+        status: false
+    }
 ];
 
 function Book(bookName, author, pages, status){
@@ -27,6 +32,7 @@ function displayBooks(){
     table.textContent = '';
     
     for(let i = 0; i < myLibrary.length; i++){
+        let index = i;
         let trow = document.createElement('tr');
         trow.classList.add('trow');
         table.appendChild(trow);
@@ -57,13 +63,22 @@ function displayBooks(){
         const createReadBtn = document.createElement('button');
         status.appendChild(createReadBtn);
         createReadBtn.classList.add('readBtn');
+        createReadBtn.setAttribute('data-index', i);
 
         if(myLibrary[i].status){
             createReadBtn.textContent = 'Read';
         }else{
             createReadBtn.textContent = 'Not Read';
         }
+
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('deleteButton');
+        deleteButton.setAttribute('data-index', i);
+        deleteButton.textContent = 'delete';
+        status.appendChild(deleteButton);
     }
+    deleteBooks();
+    readStatus();
 }   
 const form = document.getElementById('form');
 form.style.visibility = 'hidden';
@@ -113,5 +128,31 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     doSomething();
 })
+
+function deleteBooks(){
+    const delBtn = document.querySelectorAll('.deleteButton');
+    delBtn.forEach((button) => {
+        button.addEventListener('click', () => {
+            let index = button.getAttribute('data-index');
+            myLibrary.splice(index, 1);
+            displayBooks();
+        })
+    })
+}
+
+function readStatus(){
+    const readBtn = document.querySelectorAll('.readBtn');
+    readBtn.forEach((button) => {
+        button.addEventListener('click', () => {
+            let index = button.getAttribute('data-index');
+            if(myLibrary[index].status){
+                myLibrary[index].status = false;
+            }else{
+                myLibrary[index].status = true;
+            }
+            displayBooks();
+        })
+    })
+}
 
 displayBooks();
