@@ -8,63 +8,63 @@ let myLibrary = [
 
 ];
 
-function Book(bookName, author, pages){
+function Book(bookName, author, pages, status){
     this.bookName = bookName;
     this.author = author;
     this.pages = pages; 
+    this.status = status;
 }
 
-function addToLibrary(bookName, author, pages){
-    myLibrary.push(new Book(bookName, author, pages));
-    displayBooks(myLibrary[myLibrary.length-1], myLibrary.length);
+function addToLibrary(bookName, author, pages, status){
+    let book = new Book(bookName, author, pages, status);
+    myLibrary.push(book);
+    displayBooks();
 }
 
-function readStatus(){
+
+function displayBooks(){
+    const table = document.querySelector('#tbody');
+    table.textContent = '';
     
-    if(readBox.checked){
-        return 'Read';
-    }else{
-        return 'Not Read';
+    for(let i = 0; i < myLibrary.length; i++){
+        let trow = document.createElement('tr');
+        trow.classList.add('trow');
+        table.appendChild(trow);
+    
+        let sno = document.createElement('td');
+        trow.appendChild(sno);
+        sno.classList.add('sno');
+        sno.textContent = i+1;
+            
+        let bName = document.createElement('td');
+        trow.appendChild(bName);
+        bName.classList.add('bName');
+        bName.textContent = myLibrary[i].bookName;
+            
+        let authName = document.createElement('td');
+        trow.appendChild(authName);
+        authName.classList.add('authName');
+        authName.textContent = myLibrary[i].author;
+            
+        let pages = document.createElement('td');
+        trow.appendChild(pages);
+        pages.classList.add('pages');
+        pages.textContent = myLibrary[i].pages;
+            
+        let status = document.createElement('td');
+        trow.appendChild(status);
+        status.classList.add('status');
+        const createReadBtn = document.createElement('button');
+        status.appendChild(createReadBtn);
+        createReadBtn.classList.add('readBtn');
+
+        if(myLibrary[i].status){
+            createReadBtn.textContent = 'Read';
+        }else{
+            createReadBtn.textContent = 'Not Read';
+        }
     }
-}
-
-
-function displayBooks(listElement, i){
-    const table = document.querySelector('#table');
-    
-    const trow = document.createElement('tr');
-    trow.classList.add('trow');
-
-    table.appendChild(trow);
-        
-    const sno = document.createElement('td');
-    trow.appendChild(sno);
-    sno.classList.add('sno');
-    sno.textContent = i;
-
-    const bName = document.createElement('td');
-    trow.appendChild(bName);
-    bName.classList.add('bName');
-    bName.textContent = listElement.bookName;
-
-    const authName = document.createElement('td');
-    trow.appendChild(authName);
-    authName.classList.add('authName');
-    authName.textContent = listElement.author;
-
-    const pages = document.createElement('td');
-    trow.appendChild(pages);
-    pages.classList.add('pages');
-    pages.textContent = listElement.pages;
-
-    const status = document.createElement('td');
-    trow.appendChild(status);
-    status.classList.add('status');
-    const createReadBtn = document.createElement('button');
-    status.appendChild(createReadBtn);
-    createReadBtn.classList.add('readBtn');
-    createReadBtn.textContent = readStatus();
-}
+}   
 const form = document.getElementById('form');
 form.style.visibility = 'hidden';
 
@@ -80,7 +80,6 @@ addb.addEventListener('click', () => {
         form.style.visibility = 'hidden';
         addb.textContent = "+ Add Books"
     }
-
 })
 
 
@@ -88,7 +87,12 @@ function doSomething(){
     let bookKaNaam = bname.value;
     let authKaNaam = authname.value;
     let pagesNumber = pages.value;
-    addToLibrary(bookKaNaam, authKaNaam, pagesNumber);
+
+    if(readBox.checked){
+        addToLibrary(bookKaNaam, authKaNaam, pagesNumber, true);
+    }else{
+        addToLibrary(bookKaNaam, authKaNaam, pagesNumber, false);
+    }
     
     bname.value = "";
     authname.value = "";
@@ -105,21 +109,9 @@ function doSomething(){
     addb.textContent = "+ Add Books"
 }
 
-function readStatusButton(){
-    const readBtn = document.querySelectorAll('.readBtn');
-    console.log(readBtn);
-    readBtn.forEach((button) => {
-        button.addEventListener('click', () => {
-            if(button.textContent === 'Read'){
-                console.log("Read"); 
-            }else {
-                console.log("Not Read"); 
-            }
-        })
-    })
-}
-
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     doSomething();
 })
+
+displayBooks();
