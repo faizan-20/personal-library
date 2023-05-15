@@ -58,7 +58,11 @@ table, th, td{
     border-collapse: collapse;
 }
 
-tr:nth-child(even){
+tr{
+   background-color: #303a4f;
+}
+
+tr:nth-child(odd){
     background-color: #39486731;
 }
 
